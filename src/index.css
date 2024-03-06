@@ -1,4 +1,6 @@
 :root {
+  --color-grey-1:rgb(238, 238, 238);
+
   --max-width: 1800px;
 }
 * {

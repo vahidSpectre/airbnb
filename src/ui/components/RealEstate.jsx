@@ -59,7 +59,6 @@ const RealEstate = ({ className, imageArray }) => {
             />
           );
         })}
-       
       </div>
       <CustomSliderButton
         className={classes.next_button}
@@ -93,11 +92,18 @@ const RealEstate = ({ className, imageArray }) => {
           <Skeleton className={classes.date} animation="wave" variant="text" />
           <Skeleton className={classes.fee} animation="wave" variant="text" />
         </span>
-      </div> <div className={classes.thumb_container}>
-          {imageArray.map((_,i) => {
-            return <div className={`${classes.thumb} ${sliderIndex === i?classes.thumb_active:''}`} />;
-          })}
-        </div>
+      </div>{" "}
+      <div className={classes.thumb_container}>
+        {imageArray.map((_, i) => {
+          return (
+            <div
+              className={`${classes.thumb} ${
+                sliderIndex === i ? classes.thumb_active : ""
+              }`}
+            />
+          );
+        })}
+      </div>
     </motion.div>
   );
 };

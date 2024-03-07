@@ -4,7 +4,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  border-radius: 5px;
+  border-radius: 15px;
   overflow: hidden;
   position: relative;
   cursor: pointer;
@@ -14,6 +14,7 @@
   aspect-ratio: 1;
   display: flex;
   transition: all 0.25s;
+  position: relative;
 }
 .next_button,
 .perv_button {
@@ -32,7 +33,7 @@
   width: 100%;
   aspect-ratio: 1;
   object-fit: cover;
-  border-radius: 5px;
+  border-radius: 15px;
 }
 .detail_contaienr {
   display: flex;
@@ -75,23 +76,37 @@
   width: 50%;
   height: 20% !important;
 }
-.thumb_container{
-  width: 100%;
+.thumb_container {
+  width: 62px;
   position: absolute;
-  bottom:32%;
+  bottom: 32%;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: start;
+  overflow: hidden;
 }
-.thumb {
-  width: 7px;
-  height: 7px;
+.thumb_show {
+  width: fit-content;
+  display: flex;
+  align-items: center;
+  transition: all 0.25s ease-in-out;
+}
+.thumb_active,.thumb_not_active {
   border-radius: 50%;
-  background-color: rgb(178, 178, 178);
+  background-color: rgb(219, 219, 219);
+  padding: 3px;
   margin: 3px;
+  box-shadow: 0px 2px 2px black;
 }
-.thumb_active{
+.thumb_active {
+  width: 8px;
+  height: 8px;
   background-color: rgb(255, 255, 255);
+  box-shadow: 0px 3px 3px black;
+}
+.thumb_not_active {
+  width: 2px;
+  height: 2px;
 }
 .display_block {
   display: block;

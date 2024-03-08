@@ -6,11 +6,13 @@ import RealEstate from "../components/RealEstate";
 
 import data from "../../data/data.json";
 import { nanoid } from "@reduxjs/toolkit";
+import Header from "../layout/Header";
 
 const Home = () => {
 
   return (
-    <div className={classes.home} style={{ marginTop: "10rem" }}>
+    <div className={classes.home}>
+      <Header/>
       <Section className={classes.rs_container}>
         {Object.values(data).map((elem) => {
           const id = nanoid()

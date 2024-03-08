@@ -47,7 +47,7 @@ const RealEstate = ({ className, imageArray }) => {
   }, [touchEnd]);
 
   const opacity = {
-    initial: { opacity: 1 },
+    initial: { opacity: 0 },
     animate: { opacity: 1 },
   };
 

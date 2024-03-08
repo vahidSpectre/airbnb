@@ -1,5 +1,6 @@
 .home {
   width: 100%;
+  position: relative;
 }
 .rs_container {
   display: grid;

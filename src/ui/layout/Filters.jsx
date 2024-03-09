@@ -1,10 +1,18 @@
-import React from 'react'
+import React from "react";
 
-import classes from './Filters.module.css'
-const Filters = () => {
+import Section from "../components/Section";
+import classes from "./Filters.module.css";
+
+const Filters = ({ className }) => {
+ 
   return (
-    <div className={classes.wrapper}>Filters</div>
-  )
-}
+    <Section
+      cardProps={classes.card}
+      className={`${classes.wrapper} ${className}`}
+    >
+      Filters
+    </Section>
+  );
+};
 
-export default Filters
+export default Filters;

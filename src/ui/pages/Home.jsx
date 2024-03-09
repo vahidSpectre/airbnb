@@ -3,6 +3,7 @@ import React from "react";
 import Section from "../components/Section";
 import classes from "./Home.module.css";
 import RealEstate from "../components/RealEstate";
+import Filters from "../layout/Filters";
 
 import data from "../../data/data.json";
 import { nanoid } from "@reduxjs/toolkit";

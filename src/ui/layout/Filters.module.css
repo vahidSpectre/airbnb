@@ -1,6 +1,11 @@
-.wrapper{
-    width: 100%;
-    height: fit-content;
-    padding: 1rem 0;
-    background-color: greenyellow;
+.card{
+    border-bottom: 1px solid var(--color-grey-2);
+    margin-bottom: 1rem;
+    padding-bottom: 1rem;
+}
+.wrapper {
+  height: fit-content;
+  padding: 1rem 0;
+  background-color: rgba(172, 255, 47, 0.576);
+  margin-top: 1rem;
 }

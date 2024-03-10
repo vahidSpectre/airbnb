@@ -1,6 +1,9 @@
 :root {
+  --color-primary:#e51d52;
+
   --color-grey-1: rgb(238, 238, 238);
   --color-grey-2: rgb(215, 215, 215);
+  --color-grey-3: rgb(209, 209, 209);
   --max-width: 1800px;
 }
 * {

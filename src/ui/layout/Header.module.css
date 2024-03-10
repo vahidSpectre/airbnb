@@ -1,6 +1,8 @@
 .card {
   border-bottom: 1px solid var(--color-grey-2);
+  position: relative;
 }
+
 .wrapper {
   max-width: inherit;
   height: fit-content;
@@ -16,10 +18,30 @@
 }
 .header_left_side {
   display: flex;
+  align-items: center;
+}
+.header_left_side button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  cursor: pointer;
+  border: none;
+  outline: none;
+}
+.header_left_side button img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 .header_right_side {
   display: flex;
-  justify-content: space-evenly;
+}
+.header_right_side button {
+  white-space: nowrap;
+  border: none;
+  outline: none;
 }
 .header_left_side,
 .header_right_side {
@@ -33,9 +55,11 @@
   position: relative;
   display: flex;
   flex-direction: column;
-  justify-content: space-between ;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 10000;
 }
-.hidden_buttons_wrapper{
+.hidden_buttons_wrapper {
   width: 100%;
   height: 4rem;
   display: flex;
@@ -43,32 +67,204 @@
   justify-content: center;
   overflow: hidden;
 }
-.hidden_button{
+.hidden_button {
   border: none;
   outline: none;
   border-radius: 2rem;
   padding: 8px 15px;
-  margin:0 5px;
-  transition: all .25s;
+  margin: 0 5px;
+  transition: all 0.25s;
   cursor: pointer;
   color: grey;
   font-weight: bold;
 }
-.hidden_button:hover{
+.hidden_button:hover {
   background-color: var(--color-grey-2);
 }
-.hidden_button:focus{
+.hidden_button_active {
   color: black;
 }
 .search_box {
   height: 2rem;
   border-radius: 20rem;
-  background-color: blue;
-  padding: 0 1rem;
   display: flex;
   align-items: center;
-
   color: white;
+  box-shadow: 0px 2px 10px rgb(163, 163, 163);
+}
+.search_bar_main {
+  width: 100%;
+  height: 100%;
+  border-radius: inherit;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  background-color: var(--color-grey-1);
+  position: relative;
+}
+.search_bar_main > button {
+  border: none;
+  outline: none;
+  border-radius: inherit;
+  cursor: pointer;
+  transition: all 0.25s;
+  text-align: left;
+  padding: 1rem;
+  position: relative;
+}
+.where {
+  grid-column: 1/4;
+  position: relative;
+  margin-left: 0 !important;
+}
+.check_in {
+  grid-column: 4/5;
+}
+.check_out {
+  grid-column: 5/6;
+}
+.date {
+  grid-column: 4/6;
+}
+.who {
+  grid-column: 6/10;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-right: 0 !important;
+}
+.svg {
+  transition: all 0.2s;
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  border: none;
+  outline: none;
+  background-color: var(--color-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.svg img {
+  width: 1rem;
+  height: 1rem;
+  object-fit: contain;
+}
+.svg p {
+  font-weight: bolder;
+  color: white;
+  margin-left: 10px;
+  font-size: medium;
+}
+.where:hover,
+.check_in:hover,
+.check_out:hover,
+.date:hover,
+.who:hover {
+  background-color: var(--color-grey-3);
+}
+.where::after,
+.check_in::after,
+.date::after,
+.check_out::after {
+  content: "";
+  background-color: var(--color-grey-3);
+  position: absolute;
+  right: -1%;
+  top: 50%;
+  transform: translateY(-50%);
+  height: 50%;
+}
+.where::after {
+  width: 1px;
+}
+.check_in::after,
+.check_out::after,
+.date::after {
+  width: 0.5px;
+}
+/* there is a bug here  */
+.where:focus ~ .where::after,
+.check_in:focus ~ .check_in::after,
+.check_out:focus ~ .check_out::after {
+  display: none;
+  background-color: red;
+}
+.where:focus,
+.check_in:focus,
+.check_out:focus,
+.date:focus,
+.who:focus {
+  background-color: white;
+  border: 1px solid var(--color-grey-2);
+  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.519);
+}
+.where,
+.check_in,
+.check_out,
+.date,
+.who {
+  background-color: inherit;
+  position: relative;
+  margin: 0 3px;
+}
+.check_in,
+.check_out,
+.date {
+  position: unset !important;
+}
+.where_content,
+.check_in_content,
+.check_out_content,
+.date_content,
+.who_content {
+  position: absolute;
+  background-color: white;
+  top: 100%;
+  left: 0;
+  height: 50vh;
+  border: none;
+  margin-top: 1rem;
+  border-radius: 2rem;
+  display: none;
+  padding: 1rem;
+  box-shadow: 0 0 5px var(--color-grey-3);
+}
+.where:focus > .where_content,
+.check_in:focus > .check_in_content,
+.check_out:focus > .check_out_content,
+.date:focus > .date_content,
+.who:focus > .who_content {
+  display: flex;
+  box-shadow: 0px 5px 15px grey;
+}
+.where_content {
+  width: 150%;
+}
+.check_in_content,
+.check_out_content,
+.date_content {
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  cursor: pointer;
+}
+.who_content {
+  right: 0;
+}
+.extended_svg {
+  width: 8rem;
+  border-radius: 10rem;
+}
+.backdrop {
+  height: 100vh;
+  width: 100%;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 10;
+  background-color: rgba(0, 0, 0, 0.271);
 }
 .full {
   height: 10rem;
@@ -83,4 +279,51 @@
 }
 .p_relative {
   position: relative;
+}
+.dn {
+  display: none;
+}
+.db {
+  display: block;
+}
+.df {
+  display: flex;
+}
+@media screen and (min-width: 1600px) {
+  .search_box {
+    max-width: 900px;
+  }
+}
+@media screen and (max-width: 1600px) {
+  .search_box {
+    min-width: 700px;
+  }
+  .p_fixed {
+    width: calc(100% - 8rem);
+  }
+}
+@media screen and (max-width: 1024px) {
+  .search_box {
+    min-width: 600px;
+  }
+}
+@media screen and (max-width: 992px) {
+  .search_box {
+    min-width: 400px;
+  }
+}
+@media screen and (max-width: 768px) {
+  .search_box {
+    max-width: calc(100vw - 8rem);
+  }
+
+  .header_left_side,
+  .header_right_side {
+    display: none;
+  }
+}
+@media screen and (max-width: 600px) {
+  .search_box {
+    min-width: 100%;
+  }
 }

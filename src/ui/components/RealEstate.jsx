@@ -6,32 +6,45 @@ import classes from "./RealEstate.module.css";
 import CustomSliderButton from "./CustomSliderButton";
 import { nanoid } from "@reduxjs/toolkit";
 
-const RealEstate = ({ className, imageArray }) => {
+const RealEstate = ({ key, className, data }) => {
   const [sliderIndex, setSliderIndex] = useState(0);
   const [touchStar, setTouchStart] = useState(0);
   const [touchEnd, setTouchEnd] = useState(0);
   const [isImagesLoading, setIsImagesLoading] = useState(true);
+  const [month, setMonth] = useState("");
+  const [day, setDay] = useState("");
+  const [availableDays, setAvailableDays] = useState(0);
+  const [price, setPrice] = useState(0);
+  const [star, setStar] = useState(0);
 
   const thumbsRef = useRef([]);
 
-  const imagesCount = imageArray.length - 1;
+  const months = [
+    "January",
+    "February",
+    "March",
+    "April",
+    "May",
+    "June",
+    "July",
+    "August",
+    "September",
+    "October",
+    "November",
+    "December",
+  ];
 
-  // const observer = useMemo(
-  //   () =>
-  //     new IntersectionObserver(([entry]) => {
-  //       entry.isIntersecting
-  //         ? entry.target.classList.add(classes.fade)
-  //         : entry.target.classList.remove(classes.fade);
-  //     }),
-  //   [thumbsRef]
-  // );
+  useEffect(() => {
+    const monthInt = new Date(data.available).getMonth();
+    const dayInt = new Date(data.available).getDay();
+    setMonth(months[monthInt]);
+    setDay(dayInt);
+    setAvailableDays(data.available_days);
+    setPrice(data.price);
+    setStar(data.star);
+  }, [data.available, data.available_days, data.price, data.star]);
 
-  // useEffect(() => {
-  //   thumbsRef.current.map((elem) => {
-  //     observer.observe(elem);
-  //   });
-  //   return () => observer.disconnect();
-  // }, [sliderIndex]);
+  const imagesCount = data.images.length - 1;
 
   useEffect(() => {
     const diff = touchEnd - touchStar;
@@ -57,6 +70,7 @@ const RealEstate = ({ className, imageArray }) => {
       initial="initial"
       animate="initial"
       whileHover={"animate"}
+      key={key}
     >
       <div
         className={classes.image_container}
@@ -72,8 +86,7 @@ const RealEstate = ({ className, imageArray }) => {
           }`}
           sx={{ aspectRatio: 1, paddingTop: "100%" }}
         />
-        {imageArray.map((img) => {
-          const id = nanoid();
+        {data.images.map((img) => {
           return (
             <img
               src={img}
@@ -110,13 +123,53 @@ const RealEstate = ({ className, imageArray }) => {
       />
       <div className={classes.detail_contaienr}>
         <span className={classes.detail_righ_side}>
-          <Skeleton className={classes.star} animation="wave" variant="text" />
+          {star ? (
+            <div className={classes.star_wrapper}>
+              <img src="./assets/svgs/real-estate/star.svg" alt="" />
+              <p>{star}</p>
+            </div>
+          ) : (
+            <Skeleton
+              className={classes.star}
+              animation="wave"
+              variant="text"
+            />
+          )}
         </span>
         <span className={classes.detail_left_side}>
-          <Skeleton className={classes.title} animation="wave" variant="text" />
-          <Skeleton className={classes.name} animation="wave" variant="text" />
-          <Skeleton className={classes.date} animation="wave" variant="text" />
-          <Skeleton className={classes.fee} animation="wave" variant="text" />
+          {data.location.state && data.location.country ? (
+            <>
+              <p>{data.location.state}</p>
+              <p>{data.location.country}</p>
+            </>
+          ) : (
+            <Skeleton
+              className={classes.title}
+              animation="wave"
+              variant="text"
+            />
+          )}
+          {data.distance ? (
+            <p>{data.distance} Kilometers away</p>
+          ) : (
+            <Skeleton className={classes.dis} animation="wave" variant="text" />
+          )}
+          {month ? (
+            <p>
+              {month}&nbsp;{day + 1}-{day + availableDays}
+            </p>
+          ) : (
+            <Skeleton
+              className={classes.date}
+              animation="wave"
+              variant="text"
+            />
+          )}
+          {price !== 0 ? (
+            <p>{price}&nbsp;$</p>
+          ) : (
+            <Skeleton className={classes.fee} animation="wave" variant="text" />
+          )}
         </span>
       </div>
       <div className={classes.thumb_container}>
@@ -124,15 +177,15 @@ const RealEstate = ({ className, imageArray }) => {
           className={classes.thumb_show}
           style={{
             transform: `translateX(${
-              sliderIndex < imageArray.length - 2 && sliderIndex > 2
+              sliderIndex < data.images.length - 2 && sliderIndex > 2
                 ? (sliderIndex - 2) * -12
-                : sliderIndex < imageArray.length - 2
+                : sliderIndex < data.images.length - 2
                 ? 0
-                : (imageArray.length - 5) * -12
+                : (data.images.length - 5) * -12
             }px)`,
           }}
         >
-          {imageArray.map((_, i) => {
+          {data.images.map((_, i) => {
             return (
               <motion.div
                 className={`${

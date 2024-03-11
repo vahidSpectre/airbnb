@@ -2,7 +2,6 @@
   border-bottom: 1px solid var(--color-grey-2);
   position: relative;
 }
-
 .wrapper {
   max-width: inherit;
   height: fit-content;
@@ -34,6 +33,7 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
+  background-color: #ffffff;
 }
 .header_right_side {
   display: flex;
@@ -101,7 +101,7 @@
   background-color: var(--color-grey-1);
   position: relative;
 }
-.search_bar_main > button {
+.search_bar_main > div {
   border: none;
   outline: none;
   border-radius: inherit;
@@ -110,27 +110,39 @@
   text-align: left;
   padding: 1rem;
   position: relative;
+  color: black;
+  display: flex;
+  align-items: center;
 }
-.where {
+.where,
+.deactive_where {
   grid-column: 1/4;
-  position: relative;
   margin-left: 0 !important;
 }
+
 .check_in {
   grid-column: 4/5;
 }
 .check_out {
   grid-column: 5/6;
 }
-.date {
+.date,
+.deactive_date {
   grid-column: 4/6;
 }
-.who {
+.who,
+.deactive_who {
   grid-column: 6/10;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: space-between !important;
   margin-right: 0 !important;
+}
+.deactive_where,.deactive_date,.deactive_who {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  white-space: nowrap;
 }
 .svg {
   transition: all 0.2s;
@@ -161,6 +173,11 @@
 .date:hover,
 .who:hover {
   background-color: var(--color-grey-3);
+}
+.deactive_where:hover,
+.deactive_date:hover,
+.deactive_who:hover {
+  background-color: inherit;
 }
 .where::after,
 .check_in::after,
@@ -221,13 +238,54 @@
   background-color: white;
   top: 100%;
   left: 0;
-  height: 50vh;
+  height: 30rem;
   border: none;
   margin-top: 1rem;
   border-radius: 2rem;
   display: none;
-  padding: 1rem;
-  box-shadow: 0 0 5px var(--color-grey-3);
+  padding: 2rem;
+  box-shadow: 0px 5px 10px rgb(105, 105, 105);
+  min-height: 25rem;
+}
+.where_content {
+  display: flex !important;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+.where_content p {
+  padding: 1rem 0;
+}
+.region_buttons {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 1rem;
+}
+.region_buttons button {
+  aspect-ratio: 1;
+  cursor: pointer;
+  border: none;
+  outline: none;
+  transition: border-color .25s;
+  display: flex;
+  flex-direction: column;
+  color: grey;
+}
+.region_buttons button:focus {
+  border-color: var(--region-border-selected);
+  color: black;
+}
+.region_buttons button span{
+  padding: 5px;
+}
+.region_buttons button img {
+  width: 85%;
+  height: 85%;
+  object-fit: cover;  border-radius: 1rem;
+  border: 2px solid var(--color-grey-3);
+}
+.region_selected {
+  border-color: var(--region-border-selected);
 }
 .where:focus > .where_content,
 .check_in:focus > .check_in_content,
@@ -238,7 +296,7 @@
   box-shadow: 0px 5px 15px grey;
 }
 .where_content {
-  width: 150%;
+  width: 160%;
 }
 .check_in_content,
 .check_out_content,
@@ -258,13 +316,12 @@
 .backdrop {
   height: 100vh;
   width: 100%;
-  position: absolute;
-  top: 100%;
+  position: fixed;
+  top: 0%;
   left: 0;
   right: 0;
   bottom: 0;
   z-index: 10;
-  background-color: rgba(0, 0, 0, 0.271);
 }
 .full {
   height: 10rem;
@@ -316,14 +373,19 @@
   .search_box {
     max-width: calc(100vw - 8rem);
   }
-
   .header_left_side,
   .header_right_side {
     display: none;
+  }
+  .where_content{
+    width: 270%;
   }
 }
 @media screen and (max-width: 600px) {
   .search_box {
     min-width: 100%;
+  }
+  .where_content{
+    width: 300%;
   }
 }

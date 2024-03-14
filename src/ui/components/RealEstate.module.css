@@ -16,6 +16,11 @@
   transition: all 0.25s;
   position: relative;
 }
+.img_wrapper {
+  display: flex;
+  border-radius: 15px;
+  width: fit-content;
+}
 .next_button,
 .perv_button {
   position: absolute;
@@ -29,9 +34,14 @@
 .perv_button {
   left: 3%;
 }
+.skeleton {
+  width: 20rem;
+  height: 15rem !important;
+}
 .img {
   width: 100%;
   aspect-ratio: 1;
+  min-width: 100%;
   object-fit: cover;
   border-radius: 15px;
 }
@@ -55,7 +65,7 @@
   display: flex;
   align-items: center;
 }
-.star_wrapper img{
+.star_wrapper img {
   height: 80%;
 }
 .detail_left_side {
@@ -95,7 +105,8 @@
   align-items: center;
   transition: all 0.25s ease-in-out;
 }
-.thumb_active,.thumb_not_active {
+.thumb_active,
+.thumb_not_active {
   border-radius: 50%;
   background-color: rgb(219, 219, 219);
   padding: 3px;
@@ -113,8 +124,8 @@
   height: 2px;
 }
 .display_block {
-  display: block;
+  display: block !important;
 }
 .display_none {
-  display: none;
+  display: none !important;
 }

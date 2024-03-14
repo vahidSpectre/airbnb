@@ -1,0 +1,22 @@
+.map{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+.icon{
+    width: fit-content !important;
+    height: 2rem !important;
+    border-radius: 10px;
+    background-color: rgb(0, 255, 60);
+    padding: 1rem !important;
+}
+.popup{
+    width: 20rem;
+    color: blue !important;
+    height: 20rem !important;
+}
+.popup p {
+    margin: 0 !important;
+}

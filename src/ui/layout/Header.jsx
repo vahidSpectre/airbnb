@@ -32,8 +32,6 @@ const Header = () => {
       setIsFixed(true);
     } else {
       setIsFixed(false);
-      setFullSearchBar(true);
-      setStaysIsFocused(true);
     }
   });
 
@@ -88,7 +86,10 @@ const Header = () => {
           >
             Add gusts
             <motion.div className={classes.svg}>
-              <img src="./assets/svgs/header/search.svg" alt="" />
+              <img
+                src="https://vahidspectre.github.io/airbnb/assets/svgs/header/search.svg"
+                alt=""
+              />
             </motion.div>
           </motion.div>
         </div>
@@ -113,42 +114,42 @@ const Header = () => {
               <div className={classes.region_buttons}>
                 <button onClick={handleDispatchAll}>
                   <img
-                    src="./assets/images/header/f9ec8a23-ed44-420b-83e5-10ff1f071a13.jpg"
+                    src="https://vahidspectre.github.io/airbnb/assets/images/header/f9ec8a23-ed44-420b-83e5-10ff1f071a13.jpg"
                     alt=""
                   />
                   <span>I'm flexible</span>
                 </button>
                 <button onClick={handleDispatchAfrica}>
                   <img
-                    src="./assets/images/header/7e9673a5-4164-4708-a047-8d281b5980e7.webp"
+                    src="https://vahidspectre.github.io/airbnb/assets/images/header/7e9673a5-4164-4708-a047-8d281b5980e7.webp"
                     alt=""
                   />
                   <span>Africa</span>
                 </button>
                 <button onClick={handleDispatchspain}>
                   <img
-                    src="./assets/images/header/a0fd6dfc-6bec-4abb-850e-9ab78ed7bf37.webp"
+                    src="https://vahidspectre.github.io/airbnb/assets/images/header/a0fd6dfc-6bec-4abb-850e-9ab78ed7bf37.webp"
                     alt=""
                   />
                   <span>Spain</span>
                 </button>
                 <button onClick={handleDispatchAmerica}>
                   <img
-                    src="./assets/images/header/d77de9f5-5318-4571-88c7-e97d2355d20a.webp"
+                    src="https://vahidspectre.github.io/airbnb/assets/images/header/d77de9f5-5318-4571-88c7-e97d2355d20a.webp"
                     alt=""
                   />
                   <span>Asia</span>
                 </button>
                 <button onClick={handleDispatchAsia}>
                   <img
-                    src="./assets/images/header/ea5598d7-2b07-4ed7-84da-d1eabd9f2714.webp"
+                    src="https://vahidspectre.github.io/airbnb/assets/images/header/ea5598d7-2b07-4ed7-84da-d1eabd9f2714.webp"
                     alt=""
                   />
                   <span>Italy</span>
                 </button>
                 <button onClick={handleDispatchItaly}>
                   <img
-                    src="./assets/images/header/06a30699-aead-492e-ad08-33ec0b383399.webp"
+                    src="https://vahidspectre.github.io/airbnb/assets/images/header/06a30699-aead-492e-ad08-33ec0b383399.webp"
                     alt=""
                   />
                   <span>America</span>
@@ -196,7 +197,10 @@ const Header = () => {
                 whoIsFocused && classes.extended_svg
               }`}
             >
-              <img src="./assets/svgs/header/search.svg" alt="" />
+              <img
+                src="https://vahidspectre.github.io/airbnb/assets/svgs/header/search.svg"
+                alt=""
+              />
               <p style={{ display: whoIsFocused ? "block" : "none" }}>Search</p>
             </button>
           </motion.div>
@@ -221,42 +225,42 @@ const Header = () => {
               <div className={classes.region_buttons}>
                 <button onClick={handleDispatchAll}>
                   <img
-                    src="./assets/images/header/f9ec8a23-ed44-420b-83e5-10ff1f071a13.jpg"
+                    src="https://vahidspectre.github.io/airbnb/assets/images/header/f9ec8a23-ed44-420b-83e5-10ff1f071a13.jpg"
                     alt=""
                   />
                   <span>I'm flexible</span>
                 </button>
                 <button onClick={handleDispatchAfrica}>
                   <img
-                    src="./assets/images/header/7e9673a5-4164-4708-a047-8d281b5980e7.webp"
+                    src="https://vahidspectre.github.io/airbnb/assets/images/header/7e9673a5-4164-4708-a047-8d281b5980e7.webp"
                     alt=""
                   />
                   <span>Africa</span>
                 </button>
                 <button onClick={handleDispatchspain}>
                   <img
-                    src="./assets/images/header/a0fd6dfc-6bec-4abb-850e-9ab78ed7bf37.webp"
+                    src="https://vahidspectre.github.io/airbnb/assets/images/header/a0fd6dfc-6bec-4abb-850e-9ab78ed7bf37.webp"
                     alt=""
                   />
                   <span>Spain</span>
                 </button>
                 <button onClick={handleDispatchAmerica}>
                   <img
-                    src="./assets/images/header/d77de9f5-5318-4571-88c7-e97d2355d20a.webp"
+                    src="https://vahidspectre.github.io/airbnb/assets/images/header/d77de9f5-5318-4571-88c7-e97d2355d20a.webp"
                     alt=""
                   />
                   <span>Asia</span>
                 </button>
                 <button onClick={handleDispatchAsia}>
                   <img
-                    src="./assets/images/header/ea5598d7-2b07-4ed7-84da-d1eabd9f2714.webp"
+                    src="https://vahidspectre.github.io/airbnb/assets/images/header/ea5598d7-2b07-4ed7-84da-d1eabd9f2714.webp"
                     alt=""
                   />
                   <span>Italy</span>
                 </button>
                 <button onClick={handleDispatchItaly}>
                   <img
-                    src="./assets/images/header/06a30699-aead-492e-ad08-33ec0b383399.webp"
+                    src="https://vahidspectre.github.io/airbnb/assets/images/header/06a30699-aead-492e-ad08-33ec0b383399.webp"
                     alt=""
                   />
                   <span>America</span>
@@ -290,7 +294,10 @@ const Header = () => {
                 whoIsFocused && classes.extended_svg
               }`}
             >
-              <img src="./assets/svgs/header/search.svg" alt="" />
+              <img
+                src="https://vahidspectre.github.io/airbnb/assets/svgs/header/search.svg"
+                alt=""
+              />
               <p style={{ display: whoIsFocused ? "block" : "none" }}>Search</p>
             </button>
           </motion.div>
@@ -310,7 +317,10 @@ const Header = () => {
           <div className={classes.header_container}>
             <div className={classes.header_left_side}>
               <button>
-                <img src="./assets/svgs/header/logo.svg" alt="" />
+                <img
+                  src="https://vahidspectre.github.io/airbnb/assets/svgs/header/logo.svg"
+                  alt=""
+                />
               </button>
             </div>
             <motion.div

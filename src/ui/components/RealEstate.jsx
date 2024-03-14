@@ -1,10 +1,9 @@
-import React, { useEffect, useMemo, useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
 import { Skeleton } from "@mui/material";
 
 import classes from "./RealEstate.module.css";
 import CustomSliderButton from "./CustomSliderButton";
-import { nanoid } from "@reduxjs/toolkit";
 
 const RealEstate = ({ key, className, data }) => {
   const [sliderIndex, setSliderIndex] = useState(0);
@@ -78,26 +77,28 @@ const RealEstate = ({ key, className, data }) => {
         onTouchStart={(e) => setTouchStart(e.changedTouches[0].clientX)}
         onTouchEnd={(e) => setTouchEnd(e.changedTouches[0].clientX)}
       >
-        <Skeleton
-          variant="rectangular"
-          animation="wave"
-          className={`${
-            isImagesLoading ? classes.display_block : classes.display_none
-          }`}
-          sx={{ aspectRatio: 1, paddingTop: "100%" }}
-        />
-        {data.images.map((img) => {
-          return (
-            <img
-              src={img}
-              key={img}
-              onLoad={() => setIsImagesLoading(false)}
-              className={`${classes.img} ${
-                isImagesLoading ? classes.display_none : classes.display_block
-              }`}
-            />
-          );
-        })}
+        <div className={classes.img_wrapper}>
+          <Skeleton
+            variant="rectangular"
+            animation="wave"
+            className={`${
+              isImagesLoading ? classes.display_block : classes.display_none
+            } ${classes.skeleton}`}
+            sx={{ aspectRatio: 1, paddingTop: "100%" }}
+          />
+          {data.images.map((img) => {
+            return (
+              <img
+                src={img}
+                key={img}
+                onLoad={() => setIsImagesLoading(false)}
+                className={`${classes.img} ${
+                  isImagesLoading ? classes.display_none : classes.display_block
+                }`}
+              />
+            );
+          })}
+        </div>
       </div>
       <CustomSliderButton
         className={classes.next_button}

@@ -1,12 +1,23 @@
 .wrapper {
-  width: 100%;
+  width: 100vw;
 }
 .content {
   max-width: var(--max-width);
   margin: 0 auto;
 }
-@media screen and (max-width: 1800px) {
-  .wrapper {
+@media screen and (min-width: 1800px) {
+  .content {
     padding: 0 4rem;
   }
+}
+@media screen and (max-width: 1024px) {
+}
+@media screen and (max-width: 992px) {
+}
+@media screen and (max-width: 768px) {
+  .content{
+    padding: 0 1rem;
+  }
+}
+@media screen and (max-width: 600px) {
 }

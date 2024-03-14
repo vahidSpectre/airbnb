@@ -7,9 +7,11 @@ import RealEstate from "../components/RealEstate";
 
 import data from "../../data/data.json";
 import Header from "../layout/Header";
+import Map from "../map/Map";
 
 const Home = () => {
   const [renderArray, setRenderArray] = useState([]);
+  const [isMapVisiable, setIsMapVisiable] = useState(true);
   const store = useSelector((state) => state.ariaStore.aria);
 
   useEffect(() => {
@@ -24,11 +26,23 @@ const Home = () => {
   return (
     <div className={classes.home}>
       <Header />
-      <Section className={classes.rs_container}>
-        {renderArray.map((elem) => {
-          return <RealEstate data={elem} key={elem.objectId} />;
-        })}
-      </Section>
+      {!isMapVisiable ? (
+        <Section className={classes.rs_container}>
+          {renderArray.map((elem) => {
+            return <RealEstate data={elem} key={elem.objectId} />;
+          })}
+        </Section>
+      ) : (
+        <div>
+          <Map data={renderArray}/>
+        </div>
+      )}
+      <button
+        className={classes.map_button}
+        onClick={() => setIsMapVisiable(!isMapVisiable)}
+      >
+        map
+      </button>
     </div>
   );
 };

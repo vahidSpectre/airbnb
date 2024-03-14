@@ -1,6 +1,8 @@
 .card {
   border-bottom: 1px solid var(--color-grey-2);
   position: relative;
+  z-index: 10000;
+  background-color: white;
 }
 .wrapper {
   max-width: inherit;
@@ -11,6 +13,7 @@
   display: flex;
   flex-direction: column;
   transition: all 0.25s ease-in-out;
+  width: 100vw !important;
 }
 .header_container {
   display: flex;
@@ -138,7 +141,9 @@
   justify-content: space-between !important;
   margin-right: 0 !important;
 }
-.deactive_where,.deactive_date,.deactive_who {
+.deactive_where,
+.deactive_date,
+.deactive_who {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -245,7 +250,6 @@
   display: none;
   padding: 2rem;
   box-shadow: 0px 5px 10px rgb(105, 105, 105);
-  min-height: 25rem;
 }
 .where_content {
   display: flex !important;
@@ -266,22 +270,24 @@
   cursor: pointer;
   border: none;
   outline: none;
-  transition: border-color .25s;
+  transition: border-color 0.25s;
   display: flex;
   flex-direction: column;
   color: grey;
+  background-color: inherit;
 }
 .region_buttons button:focus {
   border-color: var(--region-border-selected);
   color: black;
 }
-.region_buttons button span{
+.region_buttons button span {
   padding: 5px;
 }
 .region_buttons button img {
   width: 85%;
   height: 85%;
-  object-fit: cover;  border-radius: 1rem;
+  object-fit: cover;
+  border-radius: 1rem;
   border: 2px solid var(--color-grey-3);
 }
 .region_selected {
@@ -363,6 +369,7 @@
   .search_box {
     min-width: 600px;
   }
+
 }
 @media screen and (max-width: 992px) {
   .search_box {
@@ -370,6 +377,9 @@
   }
 }
 @media screen and (max-width: 768px) {
+  .wrapper {
+    width: calc(100% - 2rem);
+  }
   .search_box {
     max-width: calc(100vw - 8rem);
   }
@@ -377,15 +387,27 @@
   .header_right_side {
     display: none;
   }
-  .where_content{
-    width: 270%;
+  .where_content {
+    width: calc(100vw - 1rem) !important;
+    left: 0.5rem;
+    background-color: aqua;
+    height: 50vh !important;
+  }
+  .header_container {
+    width: 90vw;
+  }
+  .extended_svg {
+    width: 3rem;
+  }
+  .extended_svg p {
+    display: none !important;
   }
 }
 @media screen and (max-width: 600px) {
   .search_box {
-    min-width: 100%;
+    min-width: 100vw;
   }
-  .where_content{
+  .where_content {
     width: 300%;
   }
 }

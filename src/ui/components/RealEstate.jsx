@@ -5,7 +5,7 @@ import { Skeleton } from "@mui/material";
 import classes from "./RealEstate.module.css";
 import CustomSliderButton from "./CustomSliderButton";
 
-const RealEstate = ({ key, className, data }) => {
+const RealEstate = ({ className, data }) => {
   const [sliderIndex, setSliderIndex] = useState(0);
   const [touchStar, setTouchStart] = useState(0);
   const [touchEnd, setTouchEnd] = useState(0);
@@ -69,7 +69,7 @@ const RealEstate = ({ key, className, data }) => {
       initial="initial"
       animate="initial"
       whileHover={"animate"}
-      key={key}
+      key={data.objectId}
     >
       <div
         className={classes.image_container}
@@ -86,11 +86,11 @@ const RealEstate = ({ key, className, data }) => {
             } ${classes.skeleton}`}
             sx={{ aspectRatio: 1, paddingTop: "100%" }}
           />
-          {data.images.map((img) => {
+          {data.images.map((img,i) => {
             return (
               <img
                 src={img}
-                key={img}
+                key={img + i}
                 onLoad={() => setIsImagesLoading(false)}
                 className={`${classes.img} ${
                   isImagesLoading ? classes.display_none : classes.display_block

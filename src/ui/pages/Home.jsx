@@ -15,14 +15,13 @@ const Home = () => {
   const store = useSelector((state) => state.ariaStore.aria);
 
   useEffect(() => {
-    console.log(typeof store);
     if (store === "all") {
       setRenderArray(data);
     } else {
       setRenderArray(data.filter((d) => d.aria === store));
     }
   }, [store]);
-
+  
   return (
     <div className={classes.home}>
       <Header />
@@ -34,14 +33,30 @@ const Home = () => {
         </Section>
       ) : (
         <div>
-          <Map data={renderArray}/>
+          <Map data={renderArray} />
         </div>
       )}
       <button
         className={classes.map_button}
         onClick={() => setIsMapVisiable(!isMapVisiable)}
       >
-        map
+        {isMapVisiable ? (
+          <div className={classes.map_btn_conetnt}>
+            <p>Show list</p>
+            <img
+              src="http://localhost:3000/airbnb/assets/svgs/home/list.svg"
+              alt="list"
+            />
+          </div>
+        ) : (
+          <div className={classes.map_btn_conetnt}>
+            <p>Show map</p>
+            <img
+              src="http://localhost:3000/airbnb/assets/svgs/home/map.svg"
+              alt="map"
+            />
+          </div>
+        )}
       </button>
     </div>
   );

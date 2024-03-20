@@ -35,8 +35,12 @@ const Header = () => {
     }
   });
 
-  const handleDispatchAll = (e) => {
-    e.stopPropagation();
+  useEffect(() => {
+    console.log(where.current)
+  }, [where.current])
+  
+
+  const handleDispatchAll = () => {
     dispatch(ariaStoreAction.all());
   };
   const handleDispatchAfrica = () => {
